@@ -24,4 +24,5 @@ public class ArrayTask {
             System.out.println(obj.getName() + " | " + obj.getReady());
         }
     }
+
 }
