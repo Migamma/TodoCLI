@@ -11,6 +11,7 @@ public class Main{
 
         String command = "start";
         String ready;
+        String newName;
 
         while (!command.equals("END")){
 
@@ -35,13 +36,17 @@ public class Main{
                     arr.deleteTask(name);
                 } else if (command.equals("READY")){
                     System.out.println("Is the task ready? y/n");
-                    ready = input_ready.nextLine();
+                    ready = in.nextLine();
                     arr.readyTask(name, ready);
+                } else if (command.equals("RENAME")){
+                    System.out.println("Enter the new name: ");
+                    newName = in.nextLine();
+                    arr.rename(name, newName);
                 }
             } else if (command.equals("END")) {
                 break;
             } else{
-                System.out.println("Введите правильную команду");
+                System.out.println("ERROR! Enter the correct command");
             }
         }
     }

@@ -1,7 +1,7 @@
 package org.example;
 
 public class Task {
-    private int id;
+    // private int id; id users
     private String name; // Название задачи
     private boolean ready; // Флаг готовности задачи
 
@@ -21,5 +21,7 @@ public class Task {
         this.ready = ready;
     }
 
-
+    public void setName(String name) {
+        this.name = name;
+    }
 }

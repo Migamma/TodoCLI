@@ -19,7 +19,7 @@ public class ArrayTask {
     }
 
     public void showArray(){
-        System.out.println("Название | Готовность");
+        System.out.println("Name | Ready");
         for (Task obj : object){
             System.out.println(obj.getName() + " | " + obj.getReady());
         }
@@ -35,6 +35,14 @@ public class ArrayTask {
                 } else{
                     System.out.println("Unable to determine the state");
                 }
+            }
+        }
+    }
+
+    public void rename(String name, String newName){
+        for (Task obj : object){
+            if (obj.getName().equals(name)){
+                obj.setName(newName);
             }
         }
     }
