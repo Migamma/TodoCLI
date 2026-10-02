@@ -48,4 +48,12 @@ public class ArrayTask {
         }
     }
 
+    public int lengthArray(){
+        return object.size();
+    }
+
+    public Task searchIndex(int index){
+        return object.get(index);
+    }
+
 }

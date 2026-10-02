@@ -47,7 +47,10 @@ public class Main{
                     arr.rename(name, newName);
 
                 } else if (command.equals("CREATE")) {
-                    file.CreateStorage(name);
+                    file.createStorage(name);
+
+                } else if (command.equals("WRITE")){
+                    file.writeFile(arr);
                 }
             } else if (command.equals("END")) {
                 break;

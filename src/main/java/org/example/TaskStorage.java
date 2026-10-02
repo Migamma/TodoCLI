@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 
 public class TaskStorage {
     private String nameFile;
 
-    public void CreateStorage(String nameFile){
+    public void createStorage(String nameFile){
         this.nameFile = nameFile;
         Path path = Paths.get("data" , nameFile);
         try{
@@ -25,6 +27,22 @@ public class TaskStorage {
             }
         } catch (IOException e){
             System.out.println("Error! Imposible to create the file");
+        }
+    }
+
+    public void writeFile(ArrayTask arr){
+        Path path = Paths.get("data" , nameFile);
+
+        ArrayList<String> name = new ArrayList<>();
+        try {
+            Files.writeString(path, arr.searchIndex(0).getName() + '\n');
+
+            for (int i = 1; i < arr.lengthArray(); i++){
+                    name.add(arr.searchIndex(i).getName());
+            }
+            Files.write(path, name, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        } catch (IOException e){
+            System.out.println("error");
         }
     }
 }
