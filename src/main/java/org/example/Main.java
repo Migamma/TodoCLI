@@ -1,13 +1,13 @@
 package org.example;
 import java.util.Scanner;
 
-
 public class Main{
     public static void main(String[] args) {
         ArrayTask arr = new ArrayTask();
 
+        TaskStorage file = new TaskStorage();
+
         Scanner in = new Scanner(System.in);
-        Scanner input_ready = new Scanner(System.in);
 
         String command = "start";
         String ready;
@@ -32,16 +32,22 @@ public class Main{
 
                 if (command.equals("ADD")) {
                     arr.newTask(name);
+
                 } else if (command.equals("DELETE")) {
                     arr.deleteTask(name);
+
                 } else if (command.equals("READY")){
                     System.out.println("Is the task ready? y/n");
                     ready = in.nextLine();
                     arr.readyTask(name, ready);
+
                 } else if (command.equals("RENAME")){
                     System.out.println("Enter the new name: ");
                     newName = in.nextLine();
                     arr.rename(name, newName);
+
+                } else if (command.equals("CREATE")) {
+                    file.CreateStorage(name);
                 }
             } else if (command.equals("END")) {
                 break;

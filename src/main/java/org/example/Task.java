@@ -1,7 +1,6 @@
 package org.example;
 
 public class Task {
-    // private int id; id users
     private String name; // Название задачи
     private boolean ready; // Флаг готовности задачи
 

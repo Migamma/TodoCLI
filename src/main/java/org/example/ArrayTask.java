@@ -19,9 +19,10 @@ public class ArrayTask {
     }
 
     public void showArray(){
-        System.out.println("Name | Ready");
-        for (Task obj : object){
-            System.out.println(obj.getName() + " | " + obj.getReady());
+        System.out.println("Number | Name | Ready");
+        for (int i = 0 ; i < object.size(); i++){
+            Task obj = object.get(i);
+            System.out.println((i + 1) + " | " + obj.getName() + " | " + obj.getReady());
         }
     }
 
