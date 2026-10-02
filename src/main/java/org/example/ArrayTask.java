@@ -25,4 +25,18 @@ public class ArrayTask {
         }
     }
 
+    public void readyTask(String name, String flag){
+        for (Task obj : object){
+            if (obj.getName().equals(name)){
+                if (flag.equals("y")){
+                    obj.setReady(true);
+                } else if (flag.equals("n")){
+                    obj.setReady(false);
+                } else{
+                    System.out.println("Unable to determine the state");
+                }
+            }
+        }
+    }
+
 }

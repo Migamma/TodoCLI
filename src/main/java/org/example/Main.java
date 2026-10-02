@@ -7,8 +7,10 @@ public class Main{
         ArrayTask arr = new ArrayTask();
 
         Scanner in = new Scanner(System.in);
+        Scanner input_ready = new Scanner(System.in);
 
         String command = "start";
+        String ready;
 
         while (!command.equals("END")){
 
@@ -31,6 +33,10 @@ public class Main{
                     arr.newTask(name);
                 } else if (command.equals("DELETE")) {
                     arr.deleteTask(name);
+                } else if (command.equals("READY")){
+                    System.out.println("Is the task ready? y/n");
+                    ready = input_ready.nextLine();
+                    arr.readyTask(name, ready);
                 }
             } else if (command.equals("END")) {
                 break;
