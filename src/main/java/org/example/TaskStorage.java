@@ -21,12 +21,12 @@ public class TaskStorage {
 
             if(!Files.exists(path)){
                 Files.createFile(path);
-                System.out.println("Sucfully! File created");
+                System.out.println("Sucfully! File created.");
             } else{
-                System.out.println("Error! File with same names was created");
+                System.out.println("Error! File with same names was created.");
             }
         } catch (IOException e){
-            System.out.println("Error! Imposible to create the file");
+            System.out.println("Error! Imposible to create the file.");
         }
     }
 
@@ -35,14 +35,13 @@ public class TaskStorage {
 
         ArrayList<String> name = new ArrayList<>();
         try {
-            Files.writeString(path, arr.searchIndex(0).getName() + '\n');
-
+            Files.writeString(path, arr.searchIndex(0).getName()  + "\n");
             for (int i = 1; i < arr.lengthArray(); i++){
                     name.add(arr.searchIndex(i).getName());
             }
             Files.write(path, name, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e){
-            System.out.println("error");
+            System.out.println("ERROR! Saving failed.");
         }
     }
 }
