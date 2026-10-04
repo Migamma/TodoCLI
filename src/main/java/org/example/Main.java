@@ -56,9 +56,6 @@ public class Main{
                 } else if (command.equals("PRINT")){
                     file.readFile(name);
                 }
-
-            } else if (command.equals("END")) {
-                break;
             } else{
                 System.out.println("ERROR! Enter the correct command");
             }
