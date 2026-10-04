@@ -19,6 +19,10 @@ public class Main{
             if (command.equals("SHOW")) {
                 arr.showArray();
                 continue;
+
+            } else if (command.equals("WRITE")){
+                file.writeFile(arr);
+                continue;
             }
             command = command.strip();
 
@@ -49,9 +53,10 @@ public class Main{
                 } else if (command.equals("CREATE")) {
                     file.createStorage(name);
 
-                } else if (command.equals("WRITE")){
-                    file.writeFile(arr);
+                } else if (command.equals("PRINT")){
+                    file.readFile(name);
                 }
+
             } else if (command.equals("END")) {
                 break;
             } else{

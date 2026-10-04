@@ -44,4 +44,15 @@ public class TaskStorage {
             System.out.println("ERROR! Saving failed.");
         }
     }
+
+    public void readFile(String nameFile){
+        Path path = Paths.get("data", nameFile);
+
+        try {
+            String content = Files.readString(path);
+            System.out.println(content);
+        } catch (IOException e) {
+            System.out.println("ERROR! While reading the file.");
+        }
+    }
 }
