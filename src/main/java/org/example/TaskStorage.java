@@ -1,6 +1,8 @@
 package org.example;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,18 +32,27 @@ public class TaskStorage {
         }
     }
 
-    public void writeFile(ArrayTask arr){
+    public void firstWriteFile(ArrayTask arr){
         Path path = Paths.get("data" , nameFile);
-
         ArrayList<String> name = new ArrayList<>();
-        try {
-            Files.writeString(path, arr.searchIndex(0).getName()  + "\n");
-            for (int i = 1; i < arr.lengthArray(); i++){
-                    name.add(arr.searchIndex(i).getName());
+        try{
+            if (Files.exists(path) && Files.size(path) == 0){
+                try {
+                    Files.writeString(path, "Number | Name | Ready" + "\n");
+                    Files.writeString(path,1 + " | " +   arr.searchIndex(0).getName()  + " | " + arr.searchIndex(0).getReady() + "\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    for (int i = 1; i < arr.lengthArray(); i++){
+                        name.add((i + 1) + " | " + arr.searchIndex(i).getName() + " | " + arr.searchIndex(i).getReady());
+                    }
+                    Files.write(path, name, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    System.out.println("Write in file is successfully");
+                } catch (IOException e){
+                    System.out.println("ERROR! Saving failed.");
+                }
+            } else{
+                System.out.println("Initial write to the file is not possible");
             }
-            Files.write(path, name, StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e){
-            System.out.println("ERROR! Saving failed.");
+            System.out.println("Error! File is not empty");
         }
     }
 

@@ -21,8 +21,10 @@ public class Main{
                 continue;
 
             } else if (command.equals("WRITE")){
-                file.writeFile(arr);
+                file.firstWriteFile(arr);
                 continue;
+            } else if (command.equals("END")) {
+                break;
             }
             command = command.strip();
 

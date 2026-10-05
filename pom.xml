@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>todoCli</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.5</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
